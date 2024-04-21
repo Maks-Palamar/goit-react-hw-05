@@ -1,0 +1,39 @@
+.reviewList {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    list-style: none;
+    justify-content: start;
+    align-items: start;
+    padding: 0;
+    text-align: left;
+}
+
+.reviewItem {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    max-width: 100%;
+    background-color: #000;
+    padding: 10px;
+}
+
+.authorBlock {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.reviewRating {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    font-size: 24px;
+    color: #000;
+    text-align: center;
+    margin: 0;
+    padding: 5px;
+    height: 30px;
+    width: 30px;
+}

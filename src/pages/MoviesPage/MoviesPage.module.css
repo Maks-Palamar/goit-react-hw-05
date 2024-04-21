@@ -1,0 +1,61 @@
+.formInpt {
+    width: 300px;
+    height: 30px;
+    border: 2px solid gray;
+    padding-left: 10px;
+    font-size: 20px;
+    border-radius: 5px;
+}
+
+.formInpt:focus {
+    outline: none;
+}
+
+.previewMovies {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: start;
+    width: 315px;
+    max-height: 220px;
+    flex-wrap: wrap;
+    /* border: 2px solid #fff; */
+    border-radius: 5px;
+    padding: 0;
+    margin: 0 auto;
+    overflow: auto;
+    border-right: #fff solid 2px;
+        border-left: #fff solid 2px;
+        border-bottom: #fff solid 2px;
+}
+
+.previewMovieGallery {
+        display: flex;
+            /* flex-wrap: wrap; */
+            /* gap: 5px; */
+            list-style: none;
+            justify-content: center;
+            align-items: center;
+            padding: 5px;
+            flex-direction: column;
+            text-align: left;
+            margin: 0;
+}
+
+.previewMovieItem {
+    width: 100%;
+    flex-grow: 1;
+    display: flex;
+    /* border-bottom: 0.5px solid #fff; */
+    /* flex-grow: 1; */
+}
+
+.previewMovieItem:hover {
+    background-color: #fff;
+}
+
+.previewLink {
+    text-decoration: none;
+    flex-grow: 1;
+    color: #fff;
+}

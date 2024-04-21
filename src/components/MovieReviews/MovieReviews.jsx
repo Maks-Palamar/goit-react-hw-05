@@ -1,6 +1,7 @@
 import { React, useState, useEffect } from 'react'
 import { useParams, NavLink, useLocation} from 'react-router-dom'
 import { fetchReviews } from '../../fetch'
+import css from './MovieReviews.module.css'
 
 const MovieReviews = () => {
   const { movieId } = useParams();
@@ -21,11 +22,14 @@ const MovieReviews = () => {
 
   return (
     <div>
-      <ul>
+      <ul className={css.reviewList}>
         {review && review.results.map(review => 
-          <li key={review.id}>
-            <h3><span>User: </span>{review.author_details.username}</h3>
-            <p>{review.content}</p>
+          <li key={review.id} className={css.reviewItem}>
+            <div className={css.authorBlock}>
+              <h3 className={css.reviewAuthor}><span>User:  </span>{review.author_details.username}</h3>
+              {review.author_details.rating && <p className={css.reviewRating}>{review.author_details.rating}</p>}
+            </div>
+            <p className={css.reviewContent}>{review.content}</p>
           </li>
         )}
       </ul>

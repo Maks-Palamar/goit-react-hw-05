@@ -57,9 +57,21 @@ const fetchReviews = async (movieId) => {
     return result.data;
 }
 
+const fetchQuery = async (query) => { 
+    const result = await fetch.get(`/search/movie`, {
+        params: {
+            api_key: key,
+            query: query,
+        }
+    })
+    console.log("inFetchQuery", result.data);
+    return result.data;
+}
+
 export {
     fetchPopular,
     fetchDetails,
     fetchCast,
     fetchReviews,
+    fetchQuery,
 }
