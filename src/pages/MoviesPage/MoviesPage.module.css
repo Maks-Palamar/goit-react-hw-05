@@ -24,9 +24,9 @@
     padding: 0;
     margin: 0 auto;
     overflow: auto;
-    border-right: #fff solid 2px;
-        border-left: #fff solid 2px;
-        border-bottom: #fff solid 2px;
+    border-right: 2px solid gray;
+        border-left: 2px solid gray;
+        border-bottom: 2px solid gray;
 }
 
 .previewMovieGallery {
@@ -51,11 +51,20 @@
 }
 
 .previewMovieItem:hover {
-    background-color: #fff;
+    background-color: gray;
 }
 
 .previewLink {
     text-decoration: none;
     flex-grow: 1;
     color: #fff;
+}
+
+.searchMovieGallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            list-style: none;
+            justify-content: center;
+            align-items: center;
 }

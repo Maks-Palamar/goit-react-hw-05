@@ -3,14 +3,21 @@ import css from './MoviesPage.module.css'
 import { fetchQuery } from '../../fetch'
 import MovieCard from '../../components/MovieCard/MovieCard'
 // import css from '../../components/MovieGallery/MovieGallery.module.css'
-import { Routes, Route, NavLink } from "react-router-dom";
-import { Link,useLocation } from "react-router-dom";
+import { Routes, Route, NavLink, useSearchParams } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
-const MoviesPage = (openDeatails) => {
+const MoviesPage = ({openDeatails}) => {
 
     const [query, setQuery] = useState('');
     const [movies, setMovies] = useState(null);
     const [containerHeight, setContainerHeight] = useState('auto');
+
+    const [searchParams, setSearchParams] = useSearchParams();
+    const [submitResults, setSubmitResults] = useState(null);
+    const searchQuery = searchParams.get('query') || '';
+
+    // location = useLocation();
+    // console.log(location);
 
     useEffect(() => {
         const fetchThisQuery = async () => {
@@ -19,7 +26,7 @@ const MoviesPage = (openDeatails) => {
                 setMovies(response.results);
                 console.log(response.results);
                 if (response.results.length > 0) {
-                    const containerHeight = Math.min(response.results.length * 50, 150); // Максимальна висота 200px, 100px на кожен елемент
+                    const containerHeight = Math.min(response.results.length * 50, 150);
                     setContainerHeight(`${containerHeight}px`);
                 }
             } catch (error) {
@@ -33,13 +40,41 @@ const MoviesPage = (openDeatails) => {
         }
     }, [query])
 
+    useEffect(() => {
+        if (searchQuery.trim() !== '') { 
+            const fetchThisQuery = async () => {
+                try {
+                    const response = await fetchQuery(searchQuery);
+                    setSubmitResults(response.results);
+                    console.log(response.results);
+                } catch (error) {
+                    console.log(error);
+                }
+            }
+
+            fetchThisQuery();
+        } else {
+                setSubmitResults(null)
+            }
+    }, [searchQuery])
+
     const handleChange = (e) => {
         setQuery(e.currentTarget.value);
-      }
+    }
+    
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        // const search = e.target.value;
+        console.log(query);
+        setSearchParams({ query: query });
+        setQuery('');
+        e.currentTarget.reset();
+        console.log('submit');
+    }
 
   return (
       <div>
-          <form className={css.form}>
+          <form className={css.form} onSubmit={handleSubmit}>
             <input onChange={handleChange} className={css.formInpt}
             type="text"
             autoComplete="off"
@@ -54,12 +89,19 @@ const MoviesPage = (openDeatails) => {
               {movies && movies.map(movie => 
                   <li key={movie.id} className={css.previewMovieItem}>
                       <NavLink state={location} to={`/movies/${movie.id}`} className={css.previewLink} onClick={() => { openDeatails(movie) }}>
-                          {/* <MovieCard movie={movie}  /> */}
                           <p>{movie.title}</p>
                     </NavLink>
                   </li>)}
             </ul>
           </div>}
+          {searchQuery && <ul className={css.searchMovieGallery}>
+          {submitResults && submitResults.map(result => 
+              <li key={result.id} className={css.movieItem}>
+                <NavLink state={location} to={`/movies/${result.id}`} onClick={() => { openDeatails(result) }}>
+                  <MovieCard movie={result}  />
+                </NavLink>
+              </li>)}
+        </ul>}
     </div>
   )
 }

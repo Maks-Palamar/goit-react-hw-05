@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState, useEffect, useRef } from 'react'
 import { fetchCast } from '../../fetch'
-import { useParams, NavLink, useLocation, Outlet } from 'react-router-dom'
+import { useParams, NavLink, useLocation} from 'react-router-dom'
 import css from './MovieCast.module.css'
 
 const MovieCast = () => {
