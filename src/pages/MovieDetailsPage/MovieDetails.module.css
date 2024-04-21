@@ -1,0 +1,116 @@
+/* .movieDetailsPage {
+    width: unset;
+} */
+
+.detailsContainer {
+    margin: 0 auto;
+    max-width: 500px;
+}
+
+.backLink {
+    display: flex;
+    text-decoration: none;
+    color: #FFF;
+    background-color: #000;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+
+.backLink:hover .backLink:active {
+    background-color: #FFF;
+    color: #000;
+}
+
+.additionalInfo {
+    display: flex;
+    list-style: none;
+    /* gap: 10px; */
+    margin-bottom: 20px;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0;
+    /* padding-top: 10px;
+    padding-bottom: 10px; */
+    border: 2px solid #000;
+}
+
+.additionalItem {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #000;
+    width: 100%;
+    height: 40px;
+}
+
+.addLink {
+    text-decoration: none;
+    color: #FFF;
+    padding: 10px;
+    width: 100%;
+    cursor: pointer;
+    position: relative;
+    z-index: 1;
+    /* background-color: #FFF;
+    width: 100%; */
+}
+
+.addLink::before {
+    content: '';
+        position: absolute;
+        top: 0;
+        left: 100%;
+        bottom: 0;
+        right: 0;
+        background-color: #FFF;
+        transition: left 0.4s ease;
+        z-index: -1;
+}
+
+.addLinkActive {
+    text-decoration: none;
+    /* background-color: #FFF; */
+    color: #000;
+    outline: none;
+}
+
+.addLinkActive::before {
+    left: 0;
+}
+
+/*--------*/
+.addLink2 {
+    text-decoration: none;
+    color: #FFF;
+    padding: 10px;
+    width: 100%;
+    cursor: pointer;
+    position: relative;
+    z-index: 1;
+    /* background-color: #FFF;
+    width: 100%; */
+}
+
+.addLink2::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 100%;
+    bottom: 0;
+    left: 0;
+    background-color: #FFF;
+    transition: right 0.4s ease;
+    z-index: -1;
+}
+
+.addLinkActive2 {
+    text-decoration: none;
+    /* background-color: #FFF; */
+    color: #000;
+    outline: none;
+}
+
+.addLinkActive2::before {
+    right: 0;
+}

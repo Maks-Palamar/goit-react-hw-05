@@ -17,7 +17,7 @@ const fetch = axios.create({
 const fetchPopular = async () => {
     const result = await fetch.get("/trending/movie/day", {
         params: {
-            api_key: key
+            api_key: key,
         }
     });
     console.log(result.data.results);
@@ -27,7 +27,7 @@ const fetchPopular = async () => {
 const fetchDetails = async (movieId) => { 
     const result = await fetch.get(`/movie/${movieId}`, {
         params: {
-            api_key: key
+            api_key: key,
         }
     })
     
@@ -35,7 +35,31 @@ const fetchDetails = async (movieId) => {
     return result.data;
 }
  
+const fetchCast = async (movieId) => {
+    const result = await fetch.get(`/movie/${movieId}/credits`, {
+        params: {
+            api_key: key,
+        }
+    })
+
+    console.log("inFetchCast", result.data);
+    return result.data;
+}
+
+const fetchReviews = async (movieId) => {
+    const result = await fetch.get(`/movie/${movieId}/reviews`, {
+        params: {
+            api_key: key,
+        }
+    })
+
+    console.log("inFetchReviews", result.data);
+    return result.data;
+}
+
 export {
     fetchPopular,
     fetchDetails,
+    fetchCast,
+    fetchReviews,
 }

@@ -1,0 +1,35 @@
+.castList {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.castItem {
+    display: flex;
+    justify-content: top;
+    align-items: center;
+    flex-direction: column;
+    gap: 1px;
+    width: 125px;
+    height: 270px;
+    background-color: #000;
+    /* height: 150px;
+    width: 100px; */
+    /* scale: 1; */
+
+}
+
+.castImg {
+    height: 187.5px;
+    width: 125px;
+}
+
+p {
+    margin: 0;
+}
