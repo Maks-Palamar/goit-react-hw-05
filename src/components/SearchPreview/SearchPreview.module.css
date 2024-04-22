@@ -39,6 +39,7 @@
     width: 100%;
     flex-grow: 1;
     display: flex;
+    margin: 0;
 }
 
 .previewMovieItem:hover {
@@ -49,4 +50,8 @@
     text-decoration: none;
     flex-grow: 1;
     color: #fff;
+}
+
+p {
+    margin: 0;
 }
