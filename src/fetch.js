@@ -79,6 +79,26 @@ const fetchRandomMovie = async () => {
     return result.data;
 }
 
+// const fetchPerson = async (personId) => {
+//     const result = await fetch.get(`/person/${personId}`, {
+//         params: {
+//             api_key: key,
+//         }
+//     })
+//     console.log("inFetchPerson", result.data);
+//     return result.data;
+// }
+
+const fetchGenres = async () => {
+    const result = await fetch.get(`/genre/movie/list`, {
+        params: {
+            api_key: key,
+        }
+    })
+    console.log("inFetchGenres", result.data);
+    return result.data;
+}
+
 export {
     fetchPopular,
     fetchDetails,
@@ -86,4 +106,7 @@ export {
     fetchReviews,
     fetchQuery,
     fetchRandomMovie,
+
+    fetchGenres,
+    // fetchPerson,
 }

@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import css from './MoviesPage.module.css'
-import { fetchQuery } from '../../fetch'
+import { fetchQuery, fetchGenres } from '../../fetch'
 // import MovieCard from '../../components/MovieCard/MovieCard'
 // import css from '../../components/MovieGallery/MovieGallery.module.css'
 import { useSearchParams } from "react-router-dom";
@@ -18,8 +18,9 @@ const MoviesPage = () => {
     const [submitResults, setSubmitResults] = useState(null);
     const searchQuery = searchParams.get('query') || '';
 
-    // location = useLocation();
-    // console.log(location);
+
+    // const [genreList, setGenreList] = useState(null);
+    // const [genreId, setGenreId] = useState(0);
 
     useEffect(() => {
         const fetchThisQuery = async () => {
@@ -59,6 +60,40 @@ const MoviesPage = () => {
                 setSubmitResults(null)
             }
     }, [searchQuery])
+    
+//     useEffect(() => {
+//    const fetchThisQuery = async () => {
+//     try {
+//         if (searchQuery.trim() !== '') {
+//             const response = await fetchQuery(searchQuery);
+//             if (response.results.length > 0) {
+//                 console.log('All genre ids:', response.results.map(movie => movie.genre_ids));
+//                 const filteredResults = response.results.filter(movie =>
+//                     movie.genre_ids.flat().includes(genreId)
+//                 );
+
+//                 if (filteredResults.length > 0) {
+//                     setSubmitResults(filteredResults);
+//                     console.log(filteredResults);
+//                 } else {
+//                     console.log('No movies found with genreId:', genreId);
+//                     setSubmitResults([]);
+//                 }
+//             } else {
+//                 console.log('No results found for search query:', searchQuery);
+//                 setSubmitResults([]);
+//             }
+//         } else {
+//             setSubmitResults(null);
+//         }
+//     } catch (error) {
+//         console.log(error);
+//     }
+// };
+
+//     fetchThisQuery();
+// }, [searchQuery, genreId]);
+
 
     const handleChange = (e) => {
         setQuery(e.currentTarget.value);
@@ -73,6 +108,25 @@ const MoviesPage = () => {
         e.currentTarget.reset();
         console.log('submit');
     }
+
+
+    useEffect(() => {
+        const fetchGenresList = async () => {
+            try {
+                const response = await fetchGenres();
+                setGenreList(response.genres);
+                console.log(response.genres);
+            } catch (error) {
+                console.log(error);
+            }
+        }
+        fetchGenresList();
+    }, [])
+
+    // const hendleOptions = (e) => {
+    //     console.log(e.target.value);
+    //     setGenreId(e.target.value);
+    // }
 
   return (
       <div>
@@ -89,30 +143,18 @@ const MoviesPage = () => {
             
               
 
-            <button className={css.formBtn} type="submit">Search</button>
+              <button className={css.formBtn} type="submit">Search</button>
+              
+              {/* <select name="" id="" onChange={hendleOptions}>
+                    <option value="0">0</option>
+                    <optgroup label="Genres">
+                        {genreList && genreList.map(genre => <option key={genre.id} value={genre.id}>{genre.name}</option>)}
+                    </optgroup>
+            </select> */}
+
           </form>
 
           {searchQuery && submitResults && <SearchGallery searchQuery={searchQuery} submitResults={submitResults} />}
-
-          {/* {query && <div className={css.previewMovies} style={{ height: containerHeight }}>
-              <ul className={css.previewMovieGallery}>
-              {movies && movies.map(movie => 
-                  <li key={movie.id} className={css.previewMovieItem}>
-                      <NavLink state={location} to={`/movies/${movie.id}`} className={css.previewLink}>
-                          <p>{movie.title}</p>
-                    </NavLink>
-                  </li>)}
-            </ul>
-          </div>} */}
-
-          {/* {searchQuery && <ul className={css.searchMovieGallery}>
-          {submitResults && submitResults.map(result => 
-              <li key={result.id} className={css.movieItem}>
-                <NavLink state={location} to={`/movies/${result.id}`} onClick={() => { openDeatails(result) }}>
-                  <MovieCard movie={result}  />
-                </NavLink>
-              </li>)}
-        </ul>} */}
     </div>
   )
 }
