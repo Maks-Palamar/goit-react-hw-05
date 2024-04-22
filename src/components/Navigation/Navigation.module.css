@@ -1,14 +1,11 @@
 .navList {
     display: flex;
     list-style: none;
-    /* gap: 10px; */
     margin: 0;
     margin-bottom: 20px;
     justify-content: space-around;
     align-items: center;
     padding: 0;
-    /* padding-top: 10px;
-    padding-bottom: 10px; */
     border: 2px solid #000;
     position: relative;
     top: 0;
@@ -31,8 +28,6 @@
     cursor: pointer;
     position: relative;
     z-index: 1;
-    /* background-color: #FFF;
-    width: 100%; */
 }
 
 .navLink::before {
@@ -49,7 +44,6 @@
 
 .navLinkActive {
     text-decoration: none;
-    /* background-color: #FFF; */
     color: #000;
     outline: none;
 }
@@ -67,8 +61,6 @@
     cursor: pointer;
     position: relative;
     z-index: 1;
-    /* background-color: #FFF;
-    width: 100%; */
 }
 
 .navLink2::before {

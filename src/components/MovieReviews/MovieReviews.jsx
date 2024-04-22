@@ -1,5 +1,5 @@
-import { React, useState, useEffect } from 'react'
-import { useParams, NavLink, useLocation} from 'react-router-dom'
+import { useState, useEffect } from 'react'
+import { useParams } from 'react-router-dom'
 import { fetchReviews } from '../../fetch'
 import css from './MovieReviews.module.css'
 

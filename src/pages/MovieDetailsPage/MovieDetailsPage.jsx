@@ -1,4 +1,3 @@
-import React from 'react'
 import { useState, useEffect, useRef } from 'react'
 import { fetchDetails } from '../../fetch'
 import { useParams, NavLink, useLocation, Outlet } from 'react-router-dom'

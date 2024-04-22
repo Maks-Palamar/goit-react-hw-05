@@ -1,4 +1,3 @@
-import React from 'react'
 import css from './SearchGallery.module.css'
 import { NavLink, useLocation } from "react-router-dom";
 import MovieCard from '../MovieCard/MovieCard'

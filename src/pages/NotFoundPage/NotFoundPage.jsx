@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { Routes, Route, NavLink, useSearchParams } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { fetchRandomMovie } from '../../fetch';
 import MovieCard from '../../components/MovieCard/MovieCard'
 import css from './NotFoundPage.module.css'

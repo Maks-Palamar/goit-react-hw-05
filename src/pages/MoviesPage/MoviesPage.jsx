@@ -1,10 +1,9 @@
-import { React, useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import css from './MoviesPage.module.css'
 import { fetchQuery } from '../../fetch'
-import MovieCard from '../../components/MovieCard/MovieCard'
+// import MovieCard from '../../components/MovieCard/MovieCard'
 // import css from '../../components/MovieGallery/MovieGallery.module.css'
-import { Routes, Route, NavLink, useSearchParams } from "react-router-dom";
-import { Link, useLocation } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 
 import SearchGallery from '../../components/SearchGallery/SearchGallery'
 import SearchPreview from '../../components/SearchPreview/SearchPreview'

@@ -1,8 +1,7 @@
-import React from 'react'
 import MovieCard from '../MovieCard/MovieCard'
 import css from './MovieGallery.module.css'
-import { Routes, Route, NavLink } from "react-router-dom";
-import { Link,useLocation } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 const MovieGallery = ({ popularMovies}) => {
   const location = useLocation();
