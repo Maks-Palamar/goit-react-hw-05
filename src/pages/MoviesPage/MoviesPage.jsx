@@ -6,7 +6,10 @@ import MovieCard from '../../components/MovieCard/MovieCard'
 import { Routes, Route, NavLink, useSearchParams } from "react-router-dom";
 import { Link, useLocation } from "react-router-dom";
 
-const MoviesPage = ({openDeatails}) => {
+import SearchGallery from '../../components/SearchGallery/SearchGallery'
+import SearchPreview from '../../components/SearchPreview/SearchPreview'
+
+const MoviesPage = () => {
 
     const [query, setQuery] = useState('');
     const [movies, setMovies] = useState(null);
@@ -81,27 +84,36 @@ const MoviesPage = ({openDeatails}) => {
             autoFocus
                   placeholder="Search for movies"
                   name="query"
-            />
-            {/* <button className={css.formBtn} type="submit">Search</button> */}
+              />
+              
+              <SearchPreview query={query} movies={movies} containerHeight={containerHeight}/>
+            
+              
+
+            <button className={css.formBtn} type="submit">Search</button>
           </form>
-          {movies && <div className={css.previewMovies} style={{ height: containerHeight }}>
+
+          {searchQuery && submitResults && <SearchGallery searchQuery={searchQuery} submitResults={submitResults} />}
+
+          {/* {query && <div className={css.previewMovies} style={{ height: containerHeight }}>
               <ul className={css.previewMovieGallery}>
               {movies && movies.map(movie => 
                   <li key={movie.id} className={css.previewMovieItem}>
-                      <NavLink state={location} to={`/movies/${movie.id}`} className={css.previewLink} onClick={() => { openDeatails(movie) }}>
+                      <NavLink state={location} to={`/movies/${movie.id}`} className={css.previewLink}>
                           <p>{movie.title}</p>
                     </NavLink>
                   </li>)}
             </ul>
-          </div>}
-          {searchQuery && <ul className={css.searchMovieGallery}>
+          </div>} */}
+
+          {/* {searchQuery && <ul className={css.searchMovieGallery}>
           {submitResults && submitResults.map(result => 
               <li key={result.id} className={css.movieItem}>
                 <NavLink state={location} to={`/movies/${result.id}`} onClick={() => { openDeatails(result) }}>
                   <MovieCard movie={result}  />
                 </NavLink>
               </li>)}
-        </ul>}
+        </ul>} */}
     </div>
   )
 }

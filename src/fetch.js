@@ -1,11 +1,12 @@
 import axios from "axios";
 
-const url = 'https://api.themoviedb.org/3';
 const key = 'a5b689b92ea7db4c9061a5574fdd706b';
 
-// axios.get(url, options)
-//   .then(response => console.log(response))
-//   .catch(err => console.error(err));
+function getRandomNumber(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+const randomNumber = getRandomNumber(900000, 1000000);
 
 const fetch = axios.create({
     baseURL: "https://api.themoviedb.org/3",
@@ -68,10 +69,21 @@ const fetchQuery = async (query) => {
     return result.data;
 }
 
+const fetchRandomMovie = async () => {
+    const result = await fetch.get(`/movie/${randomNumber}`, {
+        params: {
+            api_key: key,
+        }
+    })
+    console.log("inFetchRandomMovie", result.data);
+    return result.data;
+}
+
 export {
     fetchPopular,
     fetchDetails,
     fetchCast,
     fetchReviews,
     fetchQuery,
+    fetchRandomMovie,
 }
