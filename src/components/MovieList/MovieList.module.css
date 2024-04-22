@@ -1,0 +1,14 @@
+.movieGallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    list-style: none;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+}
+
+.movieItem {
+    height: 375px;
+    width: 250px;
+}

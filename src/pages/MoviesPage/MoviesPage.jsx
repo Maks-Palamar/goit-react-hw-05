@@ -5,8 +5,10 @@ import { fetchQuery, fetchGenres } from '../../fetch'
 // import css from '../../components/MovieGallery/MovieGallery.module.css'
 import { useSearchParams } from "react-router-dom";
 
-import SearchGallery from '../../components/SearchGallery/SearchGallery'
+// import SearchGallery from '../../components/SearchGallery/SearchGallery'
 import SearchPreview from '../../components/SearchPreview/SearchPreview'
+
+import MovieList from '../../components/MovieList/MovieList';
 
 const MoviesPage = () => {
 
@@ -154,7 +156,7 @@ const MoviesPage = () => {
 
           </form>
 
-          {searchQuery && submitResults && <SearchGallery searchQuery={searchQuery} submitResults={submitResults} />}
+          {searchQuery && submitResults && <MovieList searchQuery={searchQuery} submitResults={submitResults} />}
     </div>
   )
 }
