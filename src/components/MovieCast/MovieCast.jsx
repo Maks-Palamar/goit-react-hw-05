@@ -3,7 +3,6 @@ import { fetchCast } from '../../fetch'
 import { useParams } from 'react-router-dom'
 import css from './MovieCast.module.css'
 
-// import { fetchPerson } from '../../fetch'
 
 const MovieCast = () => {
     const { movieId } = useParams();
@@ -21,8 +20,6 @@ const MovieCast = () => {
         }
         fetchThisCast();
     }, [movieId])
-
-    // fetchPerson();
     
   return (
       <div>

@@ -69,6 +69,17 @@ const fetchQuery = async (query) => {
     return result.data;
 }
 
+const fetchQueryPreview = async (query) => { 
+    const result = await fetch.get(`/search/movie`, {
+        params: {
+            api_key: key,
+            query: query,
+        }
+    })
+    console.log("inFetchQuery", result.data);
+    return result.data;
+}
+
 const fetchRandomMovie = async () => {
     const result = await fetch.get(`/movie/${randomNumber}`, {
         params: {
@@ -89,15 +100,15 @@ const fetchRandomMovie = async () => {
 //     return result.data;
 // }
 
-const fetchGenres = async () => {
-    const result = await fetch.get(`/genre/movie/list`, {
-        params: {
-            api_key: key,
-        }
-    })
-    console.log("inFetchGenres", result.data);
-    return result.data;
-}
+// const fetchGenres = async () => {
+//     const result = await fetch.get(`/genre/movie/list`, {
+//         params: {
+//             api_key: key,
+//         }
+//     })
+//     console.log("inFetchGenres", result.data);
+//     return result.data;
+// }
 
 export {
     fetchPopular,
@@ -106,7 +117,8 @@ export {
     fetchReviews,
     fetchQuery,
     fetchRandomMovie,
+    fetchQueryPreview,
 
-    fetchGenres,
+    // fetchGenres,
     // fetchPerson,
 }

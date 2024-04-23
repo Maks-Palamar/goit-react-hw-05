@@ -1,5 +1,4 @@
 import css from './MovieCard.module.css'
-// import { Routes, Route, NavLink } from "react-router-dom";
 
 const MovieCard = ({movie}) => {
   return (

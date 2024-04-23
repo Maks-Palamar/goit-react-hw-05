@@ -21,8 +21,6 @@ const HomePage = () => {
     }, [])
   return (
     <div>
-      {/* <Navigation /> */}
-      {/* <MainPage /> */}
       <MovieList  popularMovies={popularMovies}/>
     </div>
   )
