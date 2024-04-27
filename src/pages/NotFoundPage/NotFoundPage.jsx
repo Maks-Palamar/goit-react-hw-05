@@ -28,7 +28,7 @@ const NotFoundPage = () => {
   return (
       <div>
           <h1>Seems like you are lost in the void, please click <NavLink to="/">HOME</NavLink> button</h1>
-            {!randomMovie && <p>There should be random movie, but something went wrong <br />try to reload page, maybe you get another one</p>}
+            {!randomMovie && <p>There should be a random movie, but something went wrong <br />try to reload this page, maybe you will get another one</p>}
           {randomMovie && <div className={css.randomMovie}>
               <p>OR <br />Here is your random movie <br />(if my function returned real id and not just random number)</p>
               <NavLink to={`/movies/${randomMovie.id}`}>
